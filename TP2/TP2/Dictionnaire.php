@@ -25,6 +25,6 @@ class Dictionnaire extends Document
     }
     public function Description()
     {
-        echo 'Fiche de bibliothèque dictionnaire </br>';
+        echo ' Reference :  ' . parent::getReference() . '|  Titre :  ' . parent::getTitre() . '|  Nombre de definitions de mots :  ' . $this->nbr_definition . '</br>';
     }
 }

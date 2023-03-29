@@ -35,6 +35,6 @@ class Livre extends Document
     }
     public function Description()
     {
-        echo 'Fiche de bibliothèque livre </br>';
+        echo ' Reference :  ' . parent::getReference() . '|  Titre :  ' . parent::getTitre() . '|  Auteur :  ' . $this->auteur . '|  Nombre de pages :  ' . $this->nbr_pages .  '</br>';
     }
 }
