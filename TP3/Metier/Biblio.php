@@ -1,29 +1,36 @@
 <?php
-include_once './Document.php';
-class Biblio
+include_once '../DAO/DAO.php';
+include_once '../Metier/Documents.php';
+class Biblio extends DAO
 {
-    protected $liste = [];
-    public function Ajouter(Document $d)
+    public function __construct($server, $user, $password, $table)
     {
-        $this->liste[] = $d;
+        $dsn = 'mysql:host=' . $server . '; dbname=' . $table;
+        $user = 'root';
+        $password = '';
+        $pdo = new PDO($dsn, $user, $password);
     }
-    public function Afficher()
+    public function Add(Document $d)
     {
-        foreach ($this->liste as $d)
-            $d->Afficher();
+        $data = 'ccc';
+        return $this->insert($data);
     }
-    public function Modifier_Titre($ref, $titre)
+    public function Up(Document $d)
     {
-        foreach ($this->liste as $d) {
-            if ($ref == $d->getReference()) {
-                $d->setTitre($titre);
-            }
-        }
+        $cnd = 1;
+        $data = 'ccc';
+        return $this->update($data, $cnd);
     }
-
-    public function toutesLesDescriptions()
+    public function Dell(Document $d)
     {
-        foreach ($this->liste as $d)
-            $d->Description();
+        $cnd = 1;
+        $data = 'ccc';
+        return $this->delete($data, $cnd);
+    }
+    public function Get(Document $d)
+    {
+        $cnd = 1;
+        $data = 'ccc';
+        return $this->select($data, $cnd);
     }
 }
