@@ -1,6 +1,6 @@
 <?php
-include_once './Document.php';
-class Dictionnaire extends Document
+include_once './Documents.php';
+class Dictionnaire extends Documents
 {
     protected $nbr_definition, $langue;
     public function __construct($code, $titre, $nbr_definition, $langue)

@@ -1,5 +1,5 @@
 <?php
-class Document
+class Documents
 {
     protected $code, $titre;
     public function __construct($code, $titre)

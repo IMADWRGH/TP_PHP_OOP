@@ -1,6 +1,6 @@
 <?php
-include_once './Document.php';
-class Livre extends Document
+include_once './Documents.php';
+class Livre extends Documents
 {
     protected $auteur, $nbr_pages;
     public function __construct($code, $titre, $auteur, $nbr_pages)
