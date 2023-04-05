@@ -1,12 +1,11 @@
 <?php
-include_once './Connexion.php';
+require './Connexion.php';
 class DAO extends Connexion
 {
     private $table;
-    public function __construct($dsn, $user, $password, $table)
+    public function __construct($dsn, $user, $password)
     {
-        Connexion::__construct($dsn, $user, $password);
-        $this->table = $table;
+        parent::__construct($dsn, $user, $password);
     }
     public function setTable($table)
     {
