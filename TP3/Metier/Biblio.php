@@ -12,7 +12,7 @@ class Biblio extends DAO
     }
     public function Add(Document $d)
     {
-        $data = 'ccc';
+        $data = 'INSERT INTO ';
         return $this->insert($data);
     }
     public function Up(Document $d)
