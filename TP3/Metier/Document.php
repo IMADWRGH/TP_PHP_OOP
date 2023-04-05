@@ -1,20 +1,19 @@
 <?php
-
-abstract class Document
+class Document
 {
-    protected $reference, $titre;
-    public function __construct($reference, $titre)
+    protected $code, $titre;
+    public function __construct($code, $titre)
     {
-        $this->reference = $reference;
+        $this->code = $code;
         $this->titre = $titre;
     }
-    public function getReference()
+    public function getCode()
     {
-        return $this->reference;
+        return $this->code;
     }
-    public function setReference($reference)
+    public function setCode($code)
     {
-        return $this->reference = $reference;
+        return $this->code = $code;
     }
     public function getTitre()
     {
@@ -24,5 +23,8 @@ abstract class Document
     {
         return $this->titre = $titre;
     }
-    abstract public function Description();
+    public function __toString()
+    {
+        return  'code :' . $this->code . 'Titre :' . $this->titre . '</br>';
+    }
 }

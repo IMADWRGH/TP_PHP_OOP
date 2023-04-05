@@ -1,7 +1,7 @@
 <?php
 class Connexion extends PDO
 {
-    public function __construct($dsn, $user, $password)
+    protected function __construct($dsn, $user, $password)
     {
         parent::__construct($dsn, $user, $password);
     }

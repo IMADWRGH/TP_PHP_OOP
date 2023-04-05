@@ -2,11 +2,12 @@
 include_once './Document.php';
 class Dictionnaire extends Document
 {
-    protected $nbr_definition;
-    public function __construct($reference, $titre, $nbr_definition)
+    protected $nbr_definition, $langue;
+    public function __construct($code, $titre, $nbr_definition, $langue)
     {
-        parent::__construct($reference, $titre);
+        parent::__construct($code, $titre);
         $this->nbr_definition = $nbr_definition;
+        $this->langue = $langue;
     }
     public function getNbr_definition()
     {
@@ -16,15 +17,16 @@ class Dictionnaire extends Document
     {
         return $this->nbr_definition = $nbr_definition;
     }
-    public function Afficher()
+    public function getLangue()
     {
-        echo 'Reference :' . parent::getReference() . '</br>';
-        echo 'Titre :' . parent::getTitre() . '</br>';
-        echo 'Nombre de definitions de mots  :' . $this->nbr_definition . '</br>';
-        echo '-------------------------------------</br>';
+        return $this->langue;
     }
-    public function Description()
+    public function setLangue($langue)
     {
-        echo ' Reference :  ' . parent::getReference() . '|  Titre :  ' . parent::getTitre() . '|  Nombre de definitions de mots :  ' . $this->nbr_definition . '</br>';
+        return $this->langue = $$langue;
+    }
+    public function __toString()
+    {
+        return parent::__toString() . '| La langue :' . $this->langue . '|  Nombre de definitions de mots :  ' . $this->nbr_definition . '</br>';
     }
 }

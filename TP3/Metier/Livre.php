@@ -3,9 +3,9 @@ include_once './Document.php';
 class Livre extends Document
 {
     protected $auteur, $nbr_pages;
-    public function __construct($reference, $titre, $auteur, $nbr_pages)
+    public function __construct($code, $titre, $auteur, $nbr_pages)
     {
-        parent::__construct($reference, $titre);
+        parent::__construct($code, $titre);
         $this->auteur = $auteur;
         $this->nbr_pages = $nbr_pages;
     }
@@ -25,16 +25,8 @@ class Livre extends Document
     {
         return $this->nbr_pages = $nbr_pages;
     }
-    public function Afficher()
+    public function __toString()
     {
-        echo 'Reference :' . parent::getReference() . '</br>';
-        echo 'Titre :' . parent::getTitre() . '</br>';
-        echo 'Auteur :' . $this->auteur . '</br>';
-        echo 'Nombre de pages :' . $this->nbr_pages . '</br>';
-        echo '-------------------------------------</br>';
-    }
-    public function Description()
-    {
-        echo ' Reference :  ' . parent::getReference() . '|  Titre :  ' . parent::getTitre() . '|  Auteur :  ' . $this->auteur . '|  Nombre de pages :  ' . $this->nbr_pages .  '</br>';
+        return parent::__toString() . '|  Auteur :  ' . $this->auteur . '|  Nombre de pages :  ' . $this->nbr_pages .  '</br>';
     }
 }
