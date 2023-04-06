@@ -33,10 +33,19 @@ class DAO extends Connexion
         $req = 'UPDATE ' . $this->table . "  SET ";
         foreach ($data as $key => $value) {
             $req .=  $key;
-
-            $req .= " = ' " . $value . " ', ";
+            $req .= " = ' " . $value . " ',   ";
         }
-        $req .= ' WHERE code=' . $criteres;
+        $req = substr($req, 0, -4);
+
+        if ($criteres != null) {
+
+            $req .= ' WHERE  ';
+            foreach ($criteres as $key => $value) {
+                $req .= "'" . $key . "' = " . $value . '  and   ';
+            }
+            $req = substr($req, 0, -6);
+            $req .= ';';
+        }
         echo $req;
         return parent::UDI($req);
     }
@@ -45,16 +54,26 @@ class DAO extends Connexion
     {
         $req = 'DELETE FROM  ' . $this->table;
         if ($criteres != null)
-            $req .= ' WHERE code=' . $criteres;
+            $req .= ' WHERE  ';
+        foreach ($criteres as $key => $value) {
+            $req .= "'" . $key . "' = " . $value . '  and   ';
+        }
+        $req = substr($req, 0, -6);
+        $req .= ';';
         echo $req;
         return parent::UDI($req);
     }
     public function select($criteres = null)
     {
-        $req = 'SELECT  * ' . $this->table;
+        $req = 'SELECT  *  FROM  ' . $this->table;
         if ($criteres != null)
-            $req .= ' WHERE code=' . $criteres;
-        //echo $req;
+            $req .= ' WHERE  ';
+        foreach ($criteres as $key => $value) {
+            $req .= "'" . $key . "' = " . $value . '  and   ';
+        }
+        $req = substr($req, 0, -6);
+        $req .= ';';
+        echo $req;
         return parent::query($req);
     }
 }
