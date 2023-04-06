@@ -18,7 +18,7 @@
     $d->setTable('Livre');
     $d->insert(array('code' => '1', 'titre' => 'hell', 'auteur' => 'Don', 'nbr_pages' => '450'));
     // // $d->update(array('code' => '2', 'titre' => '1', 'auteur' => '1', 'nbr_pages' => '1'), 1);
-    // $d->delete(1);
+    //$d->delete();
     // $d->select(1);
     ?>
 </body>
