@@ -25,7 +25,7 @@ class DAO extends Connexion
         $req = substr($req, 0, -1);
         $req .= ')';
         echo $req;
-        //return parent::UDI($req);
+        return parent::UDI($req);
     }
 
     public function update($data, $criteres)
@@ -38,7 +38,7 @@ class DAO extends Connexion
         }
         $req .= ' WHERE code=' . $criteres;
         echo $req;
-        //return parent::UDI($req);
+        return parent::UDI($req);
     }
 
     public function delete($criteres = null)
@@ -47,7 +47,7 @@ class DAO extends Connexion
         if ($criteres != null)
             $req .= ' WHERE code=' . $criteres;
         echo $req;
-        //return parent::UDI($req);
+        return parent::UDI($req);
     }
     public function select($criteres = null)
     {
@@ -55,6 +55,6 @@ class DAO extends Connexion
         if ($criteres != null)
             $req .= ' WHERE code=' . $criteres;
         echo $req;
-        //return parent::query($req);
+        return parent::query($req);
     }
 }
