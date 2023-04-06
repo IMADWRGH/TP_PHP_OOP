@@ -1,5 +1,5 @@
 <?php
-include_once './Documents.php';
+include_once 'Documents.php';
 class Dictionnaire extends Documents
 {
     protected $nbr_definition, $langue;

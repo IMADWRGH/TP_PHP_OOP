@@ -1,5 +1,5 @@
 <?php
-include_once './Documents.php';
+include_once 'Documents.php';
 class Livre extends Documents
 {
     protected $auteur, $nbr_pages;

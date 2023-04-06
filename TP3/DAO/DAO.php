@@ -54,7 +54,7 @@ class DAO extends Connexion
         $req = 'SELECT  * ' . $this->table;
         if ($criteres != null)
             $req .= ' WHERE code=' . $criteres;
-        echo $req;
+        //echo $req;
         return parent::query($req);
     }
 }

@@ -10,16 +10,13 @@
 
 <body>
     <?php
-    require './DAO/DAO.php';
-    $dsn = 'mysql:host=localhost; dbname=gestion_biblio';
+    include_once './Metier/Biblio.php';
+    $dsn = 'localhost';
     $user = 'root';
     $password = '';
-    $d = new DAO($dsn, $user, $password);
-    $d->setTable('Livre');
-    $d->insert(array('code' => '1', 'titre' => 'hell', 'auteur' => 'Don', 'nbr_pages' => '450'));
-    // // $d->update(array('code' => '2', 'titre' => '1', 'auteur' => '1', 'nbr_pages' => '1'), 1);
-    //$d->delete();
-    // $d->select(1);
+    $db = 'gestion_biblio';
+    $d = new Biblio($dsn, $user, $password, $db);
+    $d->Add(new Dictionnaire('1', 'test', 25000, 'Fr'));
     ?>
 </body>
 
