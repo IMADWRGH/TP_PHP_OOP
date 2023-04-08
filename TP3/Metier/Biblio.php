@@ -21,22 +21,37 @@ class Biblio extends DAO
         }
         return $this->insert($data);
     }
-    public function Up(Document $d)
+    public function Up(Document $d, $criteres)
     {
-        $cnd = 1;
-        $data = 'ccc';
-        return $this->update($data, $cnd);
+        if ($d instanceof Livre) {
+            parent::setTable('Livre');
+            $data = array('code' => $d->getCode(), 'titre' => $d->getTitre(), 'auteur' => $d->getAuteur(), 'nbr_pages' => $d->getNbr_pages());
+        } else {
+            parent::setTable('Dictionnaire');
+            $data = array('code' => $d->getCode(), 'titre' => $d->getTitre(), 'nbr_definition' => $d->getNbr_definition(), 'langue' => $d->getLangue());
+        }
+        return $this->update($data, $criteres);
     }
-    public function Dell(Document $d)
+    public function Dell(Document $d, $criteres)
     {
-        $cnd = 1;
-        $data = 'ccc';
-        return $this->delete($data, $cnd);
+        if ($d instanceof Livre) {
+            parent::setTable('Livre');
+            $data = array('code' => $d->getCode(), 'titre' => $d->getTitre(), 'auteur' => $d->getAuteur(), 'nbr_pages' => $d->getNbr_pages());
+        } else {
+            parent::setTable('Dictionnaire');
+            $data = array('code' => $d->getCode(), 'titre' => $d->getTitre(), 'nbr_definition' => $d->getNbr_definition(), 'langue' => $d->getLangue());
+        }
+        return $this->delete($data, $criteres);
     }
-    public function Get(Document $d)
+    public function Get(Document $d, $criteres)
     {
-        $cnd = 1;
-        $data = 'ccc';
-        return $this->select($data, $cnd);
+        if ($d instanceof Livre) {
+            parent::setTable('Livre');
+            $data = array('code' => $d->getCode(), 'titre' => $d->getTitre(), 'auteur' => $d->getAuteur(), 'nbr_pages' => $d->getNbr_pages());
+        } else {
+            parent::setTable('Dictionnaire');
+            $data = array('code' => $d->getCode(), 'titre' => $d->getTitre(), 'nbr_definition' => $d->getNbr_definition(), 'langue' => $d->getLangue());
+        }
+        return $this->select($data, $criteres);
     }
 }
