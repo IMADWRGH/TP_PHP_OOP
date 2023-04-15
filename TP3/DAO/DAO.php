@@ -41,7 +41,7 @@ class DAO extends Connexion
 
             $req .= ' WHERE  ';
             foreach ($criteres as $key => $value) {
-                $req .= "'" . $key . "' = " . $value . '  and   ';
+                $req .= $key . " =' " . $value . "'  and   ";
             }
             $req = substr($req, 0, -6);
             $req .= ';';
@@ -56,7 +56,7 @@ class DAO extends Connexion
         if ($criteres != null)
             $req .= ' WHERE  ';
         foreach ($criteres as $key => $value) {
-            $req .= "'" . $key . "' = " . $value . '  and   ';
+            $req .= $key . " = " . $value . '  and   ';
         }
         $req = substr($req, 0, -6);
         $req .= ';';
