@@ -24,8 +24,8 @@
     // $b->Nbr_livre();
     // $b->Afficher_Dictionnaire()
     // $b->tousLesAuteurs();
-    // $b->Afficher();
-    $b->toutesLesDescriptions();
+    $b->Afficher();
+    //$b->toutesLesDescriptions();
 
     ?>
 </body>

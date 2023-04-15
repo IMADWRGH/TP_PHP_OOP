@@ -2,6 +2,9 @@
 include_once './Document.php';
 class Biblio
 {
+    public function __construct()
+    {
+    }
     protected $liste = [];
     public function Ajouter(Document $d)
     {
