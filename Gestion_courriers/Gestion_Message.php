@@ -1,11 +1,17 @@
 <?php
 require './Connexion.php';
 require './Message.php';
-require_once __DIR__ . './.env';
 class Gestion_Message extends Connexion
 {
+
     public function __construct()
     {
+        $info_cnx = file(".env");
+        $server = trim(explode("=", $info_cnx[0])[1]);
+        $dbname = trim(explode("=", $info_cnx[1])[1]);
+        $user = trim(explode("=", $info_cnx[2])[1]);
+        $password = trim(explode("=", $info_cnx[3])[1]);
+        parent::__construct('mysql:host=' . $server . ';dbname=' . $dbname, $user, $password);
     }
     public function Envoyer_MSG(Message $msg)
     {
@@ -26,12 +32,13 @@ class Gestion_Message extends Connexion
     public function Lister()
     {
         $query = 'SELECT * FROM `message`';
-        return  parent::query($query);
+        $res = parent::Select($query);
+        return  $res->fetchAll(PDO::FETCH_ASSOC);
     }
     public function MSG_lus()
     {
         $query = 'SELECT * FROM `message` WHERE  etat=1';;
-        return  parent::query($query);
+        return  parent::Select($query);
     }
     public function Annee_Envoi($code)
     {
