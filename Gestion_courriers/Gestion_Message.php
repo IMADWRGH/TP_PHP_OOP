@@ -36,7 +36,7 @@ class Gestion_Message extends Connexion
     public function Annee_Envoi($code)
     {
         $query = "SELECT year(date_envoi) FROM `message` WHERE  id='{$code}'";
-        return  parent::query($query);
+        return  parent::Select($query);
     }
     public function Supprimer_MSG_lus()
     {
