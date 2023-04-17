@@ -4,6 +4,13 @@ require './Message.php';
 class Gestion_Message extends Connexion
 {
 
+    // La fonction commence par lire un fichier de configuration nommé ".env" et 
+    // stocke son contenu dans la variable $info_cnx en utilisant la fonction file(). 
+    // Ensuite, la fonction extrait le nom du serveur, le nom de la base de données,
+    //  le nom d'utilisateur et le mot de passe à partir du tableau $info_cnx en 
+    //  utilisant la fonction explode() et en les assignant à des variables distinctes
+    //   $server, $dbname, $user et $password. La fonction trim() est utilisée pour 
+    //   supprimer tout espace blanc des valeurs.
     public function __construct()
     {
         $info_cnx = file(".env");
