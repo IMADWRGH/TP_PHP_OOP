@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENQME} !-F
+RewriteRule ^(.*)$ index.php?url=$1 
