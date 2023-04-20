@@ -1,4 +1,5 @@
 <?php
+// echo 'model';
 abstract class Model extends PDO
 {
     private $id = 0;

@@ -1,4 +1,5 @@
 <?php
+// echo 'controller';
 abstract class Controller
 {
     public function __construct(string $model)
