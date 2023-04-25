@@ -8,7 +8,6 @@ class Profs extends Controller
     }
     public function index()
     {
-        echo 'function index';
     }
     public function show()
     {

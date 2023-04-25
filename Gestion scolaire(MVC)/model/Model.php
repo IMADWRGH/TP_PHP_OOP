@@ -5,7 +5,12 @@ abstract class Model extends PDO
     private static $pdo = null;
     public function __construct()
     {
-        // self::$pdo = new PDO('mysql:host=' . $server . ';dbname=' . $dbname, $user, $password);
+        $info_cnx = file(ROOT . '.env');
+        $server = trim(explode("=", $info_cnx[0])[1]);
+        $dbname = trim(explode("=", $info_cnx[1])[1]);
+        $user = trim(explode("=", $info_cnx[2])[1]);
+        $password = trim(explode("=", $info_cnx[3])[1]);
+        self::$pdo = new PDO('mysql:host=' . $server . ';dbname=' . $dbname, $user, $password);
     }
     public function save()
     {
