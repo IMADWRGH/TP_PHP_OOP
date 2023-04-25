@@ -1,5 +1,6 @@
 <?php
-class Prof extends Controller
+
+class Profs extends Controller
 {
     public function __construct()
     {
@@ -7,6 +8,7 @@ class Prof extends Controller
     }
     public function index()
     {
+        echo 'function index';
     }
     public function show()
     {
