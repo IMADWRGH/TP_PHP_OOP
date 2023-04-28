@@ -7,6 +7,7 @@ abstract class Controller
     }
     public function view(string $file, $data = null)
     {
+        include_once  ROOT . 'view/' . get_class($this) . '/' . $file . '.php';
     }
     public function Redirect($path)
     {

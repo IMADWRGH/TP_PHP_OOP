@@ -8,6 +8,7 @@ class Profs extends Controller
     }
     public function index()
     {
+        $this->view('index', Prof::All());
     }
     public function show()
     {
